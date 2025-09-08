@@ -2,14 +2,16 @@
 
 Question:
     
-    Check if the area of a rectangle is a perfect square or not?
+    Check if the quadrilateral is a square or not and find its area?
 
 Output:
     
     Length: 34
-    Breadth: 65
-    No it is not a perfect square!
+    Breadth: 34
+    It is a square!
+    Area: 1156
 
-    Length: 49
-    Breadth: 4
-    Yes it is a perfect square!
+    Length: 56
+    Breadth: 65
+    It is not a square!
+    Area: 3640
