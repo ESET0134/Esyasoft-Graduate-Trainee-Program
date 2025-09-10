@@ -36,6 +36,7 @@ Task2:
         Only include readings from the current year.
 
 Stretch Goal:
+
     Analyse smart meter readings with moderate filtering and grouping. Write a query to:
     For each meter, calculate:
         Total energy consumed during peak hours (6 PM to 10 PM)
