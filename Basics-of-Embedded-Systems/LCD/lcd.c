@@ -21,11 +21,13 @@ int main(void) {
 
     lcd_init();
 
+    _delay_ms(100);
+
     lcd_cmd(0x80);              // First line, first position
-    lcd_string("Hello, World!");
+    lcd_string("LCD IS WORKING");
 
     lcd_cmd(0xC0);              // Second line
-    lcd_string("LCD Working :)");
+    lcd_string("WELL DONE :) ");
 
     while (1) {
         // Loop forever
@@ -88,6 +90,6 @@ void lcd_init() {
 void lcd_string(const char *str) {
     while (*str) {
         lcd_data(*str++);
+        _delay_ms(10);
     }
 }
- 
