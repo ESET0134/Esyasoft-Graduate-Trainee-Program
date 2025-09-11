@@ -1,4 +1,4 @@
-# Assignment 2
+# WEEK 2
 
 TASK:
 
@@ -12,3 +12,15 @@ TASK:
 8. Find the book which has highest price
 9. Find the book which is cheapest
 10. Find the newly added books
+
+Task:
+
+Find the top 2 most expensive books purchased by each user.
+Use joins (orders → books → users)
+Apply ROW_NUMBER(), RANK(), and DENSE_RANK() with PARTITION BY user id and ORDER BY price DESC
+
+Task:
+
+Find how much each user spent in total and rank them
+Use Sum(price) with PARTITION BY user id
+Apply RANK() and DENSE_RANK() to order users by total spending.
