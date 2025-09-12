@@ -85,3 +85,22 @@ SELECT o.order_no, u.user_id, b.product_id, u.email, u.name, b.title, b.price FR
 INNER JOIN users u ON u.user_id = o.user_id
 INNER JOIN books b ON b.product_id = o.product_id
 WHERE b.price = (SELECT MAX(b.price) FROM books b);
+
+SELECT * FROM orders UNION SELECT * FROM orders;
+
+SELECT * FROM orders UNION ALL SELECT * FROM orders;
+
+SELECT GETDATE() AS Todays_Date;
+
+SELECT 
+UPPER(name) AS UpperText, 
+LOWER(name) AS LowerText, 
+LEN(name) AS Length, 
+SUBSTRING(name , 2 ,6) AS Substrings,
+SUBSTRING(REVERSE(name) , 2 ,LEN(name)) AS ReverseSubstrings,
+REPLACE(name, ' ' , '_') AS Replacement,
+CONCAT(user_id , ' ', name , ' ',email) AS Concatenated,
+CAST(user_id AS DECIMAL(10,2)) AS DeciID
+FROM Users;
+
+SELECT CONVERT(VARCHAR(10), GETDATE(),103) AS ConvertDate;
