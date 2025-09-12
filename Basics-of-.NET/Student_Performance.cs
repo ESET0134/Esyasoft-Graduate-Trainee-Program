@@ -7,7 +7,7 @@
             int[] Student1 = new int[5];
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine("Enter the marks of student " + (i + 1) + ": ");
+                Console.WriteLine("Enter the marks of Subject " + (i + 1) + ": ");
                 Student1[i] = Convert.ToInt32(Console.ReadLine());
             }
             int sum = 0;
