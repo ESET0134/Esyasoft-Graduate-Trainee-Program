@@ -1,6 +1,6 @@
-CREATE DATABASE Employee
+CREATE DATABASE Employee;
 
-USE Employee
+USE Employee;
 
 CREATE TABLE Students2024 (ID INT, Name VARCHAR(50));
 CREATE TABLE Students2025 (ID INT, Name VARCHAR(50));
@@ -43,6 +43,8 @@ RANK() OVER (PARTITION BY Department ORDER BY EmpID) AS Ranks,
 DENSE_RANK() OVER (ORDER BY EmpID) AS DenseRank
 FROM Employees;
 
+--PROCEDURES
+
 CREATE PROCEDURE GetEmployeeDetails 
 	@Department VARCHAR(30),
 	@EmpID INT
@@ -55,6 +57,7 @@ DROP PROCEDURE GetEmployeeDetails;
 
 EXEC GetEmployeeDetails @Department = 'HR', @EmpID = 7;
 
+--PROCEDURE WITH ERROR HANDLING AND CONDITIONAL LOGIC
 
 CREATE PROCEDURE CheckEmployeeSalary
 	@EmpID VARCHAR(20)
@@ -81,5 +84,51 @@ END;
 
 DROP PROCEDURE CheckEmployeeSalary;
 
-EXEC CheckEmployeeSalary @EmpID = 'SHRUTI';
+EXEC CheckEmployeeSalary @EmpID = 'SHRUTI'; -- This will raise an error and be caught in CATCH block
 EXEC CheckEmployeeSalary @EmpID = 2;
+
+--TRIGGERS TO NOTIFY INSERT OPERATION
+
+CREATE TRIGGER Insert_into_Students
+ON Students2025
+AFTER INSERT
+AS
+BEGIN
+	PRINT 'New Student Record Has Been Inserted!';
+END;
+
+INSERT INTO Students2025 VALUES (19, 'Vidya'), (21,'Dev');
+
+--TRIGGERS TO PREVENT DELETE OPERATION
+
+CREATE TRIGGER Delete_from_Students
+ON Students2025
+INSTEAD OF DELETE
+AS
+BEGIN
+	PRINT 'Record Cannot be Deleted!';
+END;
+
+DROP TRIGGER Delete_from_Students;
+
+DELETE FROM Students2025 WHERE ID = 19;
+
+--TRIGGER TO PREVENT DELETE OPERATION USING ROLLBACK
+
+CREATE TRIGGER Delete_ON_Students
+ON Students2025
+AFTER DELETE
+AS
+BEGIN
+	PRINT 'Record Cannot be Deleted!';
+	ROLLBACK TRANSACTION;
+END;
+
+--VIEWS
+
+CREATE VIEW my_view
+AS
+SELECT EmpID, Name, Salary
+FROM Employees;
+
+SELECT * FROM my_view;
