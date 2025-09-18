@@ -1,32 +1,50 @@
 import React, { useState } from "react";
 
 function LoginFormComponent() {
-    const [username, setUserName] = useState("")
-    const [password, setPassword] = useState("")
 
-    const onLoginHandler = () =>{
-        console.log("Username: ", username)
-        console.log("Password: ", password)
+  const [loginState,setLoginState] = useState({
+    username:"",
+    password:""
+  });
 
-        if(username !=='username'){
-            alert("Invald Username")
-            return;
-        }
-        if(password !=='password'){
-            alert("Invald Password")
-            return;
-        }
-        alert("Login Successful")
-    };
+  const onUsernameChangeHandler = (e)=>{
+    setLoginState({
+      ...loginState,
+      username: e.target.value
+    })
+  }
+  const onPasswordChangeHandler = (e)=>{
+    setLoginState({
+      ...loginState,
+      password:e.target.value
+    })
+  }
+  const onSubmitHandler = (e)=>{
+    e.preventDefault();
+    if(loginState.username !== "username"){
+      alert("invalid username")
+      return;
+    }
+    if (loginState.password !== "password") {
+      alert("invalid password")
+      return
+    }
+    alert("login successfull")
+  }
 
-    return (
-        <form onSubmit={onLoginHandler}>
-            <input type="text" value = {username} onChange={(e) => {setUserName(e.target.value)}} placeholder="Enter Your Username"/>
-            <input type="password" value = {password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Enter your Password"/>
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-        </form>
-    )
+  return (
+    <>
+      welcome to login page
+      <br />
+      <form onSubmit={onSubmitHandler}>
+        <input name="username" type="text" value={loginState.username} onChange={onUsernameChangeHandler}/>
+        <br />
+        <input name="password" type="password" value={loginState.password} onChange={onPasswordChangeHandler}/>
+        <br />
+        <button type="submit" >login</button>
+      </form>
+    </>
+  );
 }
 
 export default LoginFormComponent;

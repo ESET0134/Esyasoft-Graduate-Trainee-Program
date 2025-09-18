@@ -1,31 +1,30 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
 function LoginComponent() {
-    const [username, setUserName] = useState("")
-    const [password, setPassword] = useState("")
 
-    const onLoginHandler = () =>{
-        console.log("Username: ", username)
-        console.log("Password: ", password)
 
-        if(username !=='username'){
-            alert("Invald Username")
+    const [username,setUsername] = useState("")
+    const [password,setPassword] = useState("")
+
+    const onLoginHandler = ()=>{
+        if(username!=="username"){
+            alert("invalid username")
             return;
         }
-        if(password !=='password'){
-            alert("Invald Password")
+        if(password!=="password"){
+            alert("invalid password")
             return;
         }
-        alert("Login Successful")
-    };
+        alert("login successfull")
+    }
 
-    return (
-        <div>
-            <input type="text" value = {username} onChange={(e) => {setUserName(e.target.value)}} placeholder="Enter Your Username"/>
-            <input type="password" value = {password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Enter your Password"/>
-            <button onClick={onLoginHandler}>Login</button>
-        </div>
-    )
+  return (
+    <div>
+      <input type='text' value={username}  onChange={(e)=>{setUsername(e.target.value)}} placeholder='enter your username'/>
+      <input type='password' value={password}  onChange={(e)=>{setPassword(e.target.value)}} placeholder='enter your password'/>
+      <button onClick={onLoginHandler}>login</button>
+    </div>
+  )
 }
 
-export default LoginComponent;
+export default LoginComponent
