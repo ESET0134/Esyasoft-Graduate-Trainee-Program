@@ -5,3 +5,4 @@
 3. Basics of Python
 4. Understanding React
 5. Basics of .NET
+6. Basics of DLMS
