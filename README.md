@@ -6,3 +6,4 @@
 4. Understanding React
 5. Basics of .NET
 6. Basics of DLMS - Completed on 20/09/2025
+7. Understanding Rabbit MQ
